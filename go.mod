@@ -1,4 +1,4 @@
-module github.com/AlfiantoBara/Library-manager
+module github.com/AlfiantoBara/docker-web-app
 
 go 1.20
 
