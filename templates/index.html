@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Manager</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Library Manager</h1>
+      </header>
+
+      <!-- Formulir untuk menambah atau memperbarui buku -->
+      <section class="form-section">
+        <h2 id="form-title">Add a New Book</h2>
+        <form id="bookForm" action="{{ url_for('add_book') }}" method="POST">
+          <input type="hidden" id="bookId" name="id" />
+          <!-- Input tersembunyi untuk ID Buku -->
+
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
+
+          <label for="author">Author:</label>
+          <input type="text" id="author" name="author" required />
+
+          <label for="year">Year:</label>
+          <input type="number" id="year" name="year" required />
+
+          <!-- Tombol untuk menambah buku -->
+          <button type="submit" class="submit-btn" id="addButton">
+            Add Book
+          </button>
+
+          <!-- Tombol untuk memperbarui buku, disembunyikan saat pertama kali -->
+          <button
+            type="submit"
+            id="updateButton"
+            style="display: none"
+            class="submit-btn"
+          >
+            Update Book
+          </button>
+        </form>
+      </section>
+
+      <!-- Daftar Buku dalam Tabel -->
+      <section class="book-list">
+        <h2>Book List</h2>
+        {% if books %}
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Year</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for book in books %}
+            <tr>
+              <td>{{ book.title }}</td>
+              <td>{{ book.author }}</td>
+              <td>{{ book.year }}</td>
+              <td>
+                <button
+                  class="edit-btn"
+                  data-id="{{ book.id }}"
+                  data-title="{{ book.title }}"
+                  data-author="{{ book.author }}"
+                  data-year="{{ book.year }}"
+                >
+                  Edit
+                </button>
+
+                <!-- Formulir Hapus -->
+                <form
+                  action="{{ url_for('delete_book', id=book.id) }}"
+                  method="POST"
+                  class="delete-form"
+                >
+                  <button type="submit" class="delete-btn">Delete</button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <p>No books added yet. Please add a book using the form above.</p>
+        {% endif %}
+      </section>
+
+      <footer>
+        <p>Library Manager © {{ current_year }}. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <!-- Pastikan script.js terhubung dengan benar -->
+    <script src="{{ url_for('static', filename='sricpt.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+header h1 {
+  font-size: 3.5em;
+  color: #3498db;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+h2 {
+  text-align: center;
+  color: #3498db;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+/* Formulir Styling */
+.form-section {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-section label {
+  font-weight: 600;
+  color: #333;
+}
+
+.form-section input {
+  padding: 15px;
+  font-size: 1.1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease-in-out, transform 0.2s;
+}
+
+.form-section input:focus {
+  border-color: #3498db;
+  transform: scale(1.02);
+}
+
+.submit-btn {
+  padding: 12px;
+  background-color: #3498db;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: #2980b9;
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* Tabel untuk menampilkan buku */
+.book-list table {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+  transition: transform 0.3s ease;
+}
+
+.book-list th,
+.book-list td {
+  padding: 12px 20px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.book-list th {
+  background-color: #3498db;
+  color: white;
+}
+
+.book-list tr {
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.book-list tr:hover {
+  background-color: #f0f0f0;
+  transform: translateX(5px);
+}
+
+.book-list td {
+  font-size: 1.1em;
+}
+
+.book-list td button.delete-btn {
+  padding: 8px 15px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.book-list td button.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.book-list td button.delete-btn:active {
+  transform: scale(0.95);
+}
+
+/* Responsif untuk tampilan mobile */
+@media (max-width: 768px) {
+  .form-section form {
+    gap: 15px;
+  }
+
+  .book-list table {
+    font-size: 14px;
+  }
+
+  header h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 1.7em;
+  }
+
+  .form-section button.submit-btn {
+    padding: 10px;
+  }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #3498db;
+  color: white;
+  margin-top: 40px;
+  font-size: 1em;
+  font-weight: 500;
+}
